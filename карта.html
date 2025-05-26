@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Логотип" class="logo">
+        </a>
+
+        <div class="nav-buttons">
+            <a href="фотоархив.html">Фотоархив</a>
+            <a href="#" class="active">Карта</a>
+            <a href="хронология.html">Хронология</a>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Поиск" class="search-input">
+            <div class="search-icon">
+                <img src="images/search-icon.png" alt="Поиск">
+            </div>
+        </div>
+    </header>
+
+    <div class="archive-header">
+        <div class="archive-title">Карта</div>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="photo-info-container" style="display: none;">
+        <div class="gallery-container">
+            <div class="gallery-slide active">
+                <img src="images/map photo1.jpg" alt="Фото 1" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">Первая половина 50-х</div>
+                    <div class="photo-description">Читинский электро-механический завод (в 1955 переименован в Читинский машиностроительный завод). </div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo2.jpg" alt="Фото 2" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">Конец 1960-х</div>
+                    <div class="photo-description">Читинский машиностроительный завод. </div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo3.jpg" alt="Фото 3" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">Середина 1970-х годов</div>
+                    <div class="photo-description">Въезд на территорию Читинского машиностроительного завода.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo4.jpg" alt="Фото 4" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">1979 год</div>
+                    <div class="photo-description">Улица Новобульварная, коллектив Читинского машиностроительного завода выходит на первомайскую демонстрацию.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo5.jpg" alt="Фото 5" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">1979 год</div>
+                    <div class="photo-description">Шествие коллектива Читинского машиностроительного завода по улице Новобульварной возле ДК Машзавода.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo6.jpg" alt="Фото 6" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">Начало 1980-х годов</div>
+                    <div class="photo-description">Доска боевой славы работников Читинского машиностроительного завода. Была установлена возле центральной проходной завода на троллейбусной остановке на улице Новобульварной.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo7.jpg" alt="Фото 7" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">1981 год</div>
+                    <div class="photo-description">Здание сборочных цехов Читинского машиностроительного завода. На заднем плане - Читинская областная клиническая больница.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-slide">
+                <img src="images/map photo8.jpg" alt="Фото 8" class="gallery-photo">
+                <div class="photo-info">
+                    <div class="photo-title">1985 год</div>
+                    <div class="photo-description">Проходная Читинского машзавода на Новобульварной.</div>
+                </div>
+            </div>
+            
+            <div class="gallery-nav">
+                <button class="nav-arrow prev">❮</button>
+                <button class="nav-arrow next">❯</button>
+            </div>
+            
+            <div class="photo-counter">Фото 1 из 8</div>
+        </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=d6c2a3be-694f-49df-9041-08972f965d50&lang=ru_RU"></script>
+  <script>
+    ymaps.ready(init);
+
+    function init() {
+        const map = new ymaps.Map("map", {
+            center: [52.033635, 113.501049],
+            zoom: 14
+        });
+
+        const infoContainer = document.getElementById('photo-info-container');
+
+        // Создаем общие параметры для всех меток
+        const placemarkOptions = {
+            iconLayout: 'default#image',
+            iconImageHref: 'images/marker-icon.png',
+            iconImageSize: [33, 47],
+            iconImageOffset: [-15, -15]
+        };
+
+        const placemark1 = new ymaps.Placemark([52.046798, 113.505981], {
+            hintContent: "ул. Новобульварная, 103",
+            balloonContent: "Читинский машиностроительный завод"
+        }, placemarkOptions); // Используем общие параметры
+
+        placemark1.events.add('click', function() {
+            infoContainer.style.display = 'block';
+            infoContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            // Сброс галереи к первому фото при открытии
+            currentSlide = 0;
+            showSlide(currentSlide);
+        });
+
+        const placemark2 = new ymaps.Placemark([52.033012, 113.500589], {
+            hintContent: "Парк Победы",
+            balloonContent: "Городской парк культуры и отдыха"
+        }, placemarkOptions); // Используем общие параметры
+
+        const placemark3 = new ymaps.Placemark([52.037248, 113.509960], {
+            hintContent: "Железнодорожный вокзал",
+            balloonContent: "Историческое здание вокзала станции Чита"
+        }, placemarkOptions); // Используем общие параметры
+
+        map.geoObjects.add(placemark1);
+        map.geoObjects.add(placemark2);
+        map.geoObjects.add(placemark3);
+    }
+
+    // Остальной код галереи остается без изменений
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.gallery-slide');
+    const counter = document.querySelector('.photo-counter');
+    
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[n].classList.add('active');
+        counter.textContent = `Фото ${n+1} из ${slides.length}`;
+    }
+    
+    document.querySelector('.next').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    });
+    
+    document.querySelector('.prev').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (infoContainer.style.display === 'block') {
+            if (e.key === 'ArrowRight') {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            } else if (e.key === 'ArrowLeft') {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+        }
+    });
+</script>
+
+    <!-- Подвал -->
+<footer class="footer">
+    <!-- Красный прямоугольник -->
+    <div class="red-rectangle">
+        <img src="images/footer-icon.png" alt="Иконка" class="footer-icon">
+        <div class="white-line"></div>
+        <div class="footer-title">ИСТОРИЯ<br>РЯДОМ</div>
+    </div>
+
+    <!-- Черный прямоугольник -->
+    <div class="black-rectangle">
+        <!-- Кнопка "Обратная связь" -->
+        <button class="feedback-button">Обратная связь</button>
+
+        <!-- Надписи и кнопки -->
+        <div class="social-links">
+            <div class="social-item">
+                <span class="social-text">VK</span>
+                <div class="social-button">
+                    <img src="images/vk-icon.png" alt="VK" class="social-icon">
+                </div>
+            </div>
+            <div class="social-item">
+                <span class="social-text">Telegram</span>
+                <div class="social-button">
+                    <img src="images/telegram-icon.png" alt="Telegram" class="social-icon">
+                </div>
+            </div>
+            <div class="social-item">
+                <span class="social-text">Youtube</span>
+                <div class="social-button">
+                    <img src="images/youtube-icon.png" alt="YouTube" class="social-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

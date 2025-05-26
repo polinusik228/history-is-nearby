@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шапка сайта</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+    <header class="header">
+        <!-- Логотип как кнопка -->
+        <a href="index.html">
+    <img src="images/logo.png" alt="Логотип" class="logo">
+</a>
+
+        <!-- Кнопки -->
+        <div class="nav-buttons">
+    <a href="фотоархив.html">Фотоархив</a>
+    <a href="карта.html">Карта</a>
+    <a href="хронология.html">Хронология</a>
+</div>
+
+ <!-- Окно поиска -->
+<div class="search-box">
+    <input type="text" placeholder="Поиск" class="search-input">
+    <div class="search-icon">
+        <img src="images/search-icon.png" alt="Поиск">
+    </div>
+</div>
+    </header>
+
+    <!-- Секция под шапкой -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>ИСТОРИЯ РЯДОМ</h1>
+            <div class="rectangle">
+                <div class="date-container">
+                    <div class="date">25</div>
+                    <div class="month">ноября</div>
+                </div>
+            </div>
+            <button class="article-button">Перейти к статье</button>
+        </div>
+    </section>
+
+    <!-- Новая секция с кнопкой "Новые статьи" и фотографиями -->
+<section class="new-articles-section">
+    <!-- Кнопка "Новые статьи" -->
+    <div class="new-articles-button-container">
+        <button class="new-articles-button">Новые статьи</button>
+    </div>
+
+    <!-- Контейнер для фотографий -->
+    <div class="photos-container">
+        <!-- Левая фотография -->
+        <div class="photo-wrapper">
+            <img src="images/photo-left.jpg" alt="Фото 1" class="photo">
+            <button class="read-button">Читать</button>
+        </div>
+
+        <!-- Центральная фотография -->
+        <div class="photo-wrapper">
+            <img src="images/photo-center.jpg" alt="Фото 2" class="photo">
+            <button class="read-button">Читать</button>
+        </div>
+
+        <!-- Правая фотография -->
+        <div class="photo-wrapper">
+            <img src="images/photo-right.jpg" alt="Фото 3" class="photo">
+            <button class="read-button">Читать</button>
+        </div>
+    </div>
+</section>
+
+<!-- Новая секция "О проекте" -->
+<section class="about-section">
+    <!-- Прямоугольник с надписью "О проекте" -->
+    <div class="about-title-container">
+        <div class="about-title">О проекте</div>
+    </div>
+
+    <!-- Серый прямоугольник с текстом -->
+    <div class="about-content">
+        <div class="about-text">
+            <span class="red-text">ИСТОРИЯ РЯДОМ</span>
+            <div class="description-container">
+                <span class="description-text">
+                    - портал, посвященный культурной и архитектурной истории Читы.<br><br>
+                    Он создан для помощи в поиске информации, развитию кругозора, совершенствованию знаний о родном городе и ностальгии.<br>
+                    Приятного путешествия во времени!
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Подвал -->
+<footer class="footer">
+    <!-- Красный прямоугольник -->
+    <div class="red-rectangle">
+        <img src="images/footer-icon.png" alt="Иконка" class="footer-icon">
+        <div class="white-line"></div>
+        <div class="footer-title">ИСТОРИЯ<br>РЯДОМ</div>
+    </div>
+
+    <!-- Черный прямоугольник -->
+    <div class="black-rectangle">
+        <!-- Кнопка "Обратная связь" -->
+        <button class="feedback-button">Обратная связь</button>
+
+        <!-- Надписи и кнопки -->
+        <div class="social-links">
+            <div class="social-item">
+                <span class="social-text">VK</span>
+                <div class="social-button">
+                    <img src="images/vk-icon.png" alt="VK" class="social-icon">
+                </div>
+            </div>
+            <div class="social-item">
+                <span class="social-text">Telegram</span>
+                <div class="social-button">
+                    <img src="images/telegram-icon.png" alt="Telegram" class="social-icon">
+                </div>
+            </div>
+            <div class="social-item">
+                <span class="social-text">Youtube</span>
+                <div class="social-button">
+                    <img src="images/youtube-icon.png" alt="YouTube" class="social-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

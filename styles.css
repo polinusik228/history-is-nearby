@@ -1,0 +1,1329 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+/* Сброс отступов и центрирование шапки по горизонтали */
+body {
+    font-family: "Play", sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    justify-content: flex-start; /* Шапка прижата к верху */
+    align-items: center; /* Центрирование по горизонтали */
+    min-height: 100vh; /* Минимальная высота страницы */
+    background-color: #FFFFFF;
+}
+
+/* Основные стили для шапки */
+.header {
+    width: 1300px;
+    height: 100px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Логотип */
+.logo {
+    width: 90px;
+    height: 90px;
+    margin-right: 21px; /* Отступ справа от логотипа */
+    transition: filter 0.3s; /* Плавное изменение фильтра при наведении */
+}
+
+/* Стили для логотипа при наведении */
+.header a:hover .logo {
+    filter: brightness(0.1); /* Затемнение логотипа при наведении */
+}
+
+/* Блок с кнопками */
+.nav-buttons {
+    display: flex;
+    gap: 43px; /* Отступы между кнопками */
+    margin-right: 20px; /* Отступ справа от блока кнопок */
+    margin-left: 21px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    transition: color 0.3s; /* Плавное изменение цвета текста при наведении */
+}
+
+/* Изменение цвета текста кнопок при наведении */
+.nav-buttons a:hover {
+    color: #FF0000; /* Цвет текста при наведении (красный) */
+}
+
+/* Окно поиска */
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    border: 1px solid #A3A3A3;
+    padding: 5px 15px 5px 10px; /* Увеличиваем правый padding для отступа */
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    width: 301px;
+    height: 53px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 200px; /* Еще немного уменьшаем ширину */
+    height: 100%;
+    background: transparent;
+    padding: 0;
+}
+
+.search-box .search-icon {
+    width: 71px;
+    height: 38px;
+    cursor: pointer;
+    margin-left: 10px;
+    flex-shrink: 0;
+    margin-right: 5px; /* Добавляем отступ от правого края */
+}
+
+/* Подчеркивание для поля ввода */
+.search-box::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    width: 198px;
+    bottom: 5px;
+    height: 1px;
+    background-color: #A3A3A3;
+    transition: background-color 0.3s ease;
+}
+
+/* Стили при наведении */
+.search-box:hover {
+    box-shadow: 5px 5px 0px #D63030; /* Тень 5px по X и Y */
+    border-color: #000; /* Черная обводка */
+}
+
+.search-box:hover::after {
+    background-color: #000; /* Черная линия при наведении */
+}
+
+/* Плейсхолдер исчезает при фокусе */
+.search-input:focus::placeholder {
+    color: transparent;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1300px) {
+    .search-box input {
+        width: 200px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box input {
+        width: 80%;
+        font-size: 14px;
+    }
+}
+
+/* Медиа-запрос для экранов меньше 1300px */
+@media (max-width: 1300px) {
+    .header {
+        width: 100%; /* Шапка занимает всю ширину экрана */
+        padding: 0 10px; /* Уменьшаем отступы */
+    }
+
+    .nav-buttons {
+        gap: 20px; /* Уменьшаем отступы между кнопками */
+        margin-right: 10px; /* Уменьшаем отступ справа */
+        margin-left: 10px; /* Уменьшаем отступ слева */
+    }
+
+    .nav-buttons a {
+        font-size: 18px; /* Уменьшаем размер шрифта кнопок */
+    }
+
+    .search-box {
+        padding: 5px; /* Уменьшаем отступы внутри поиска */
+    }
+
+    .search-box input {
+        width: 200px; /* Уменьшаем ширину поля поиска */
+        font-size: 16px; /* Уменьшаем размер шрифта в поле поиска */
+    }
+
+    .logo {
+        width: 60px; /* Уменьшаем размер логотипа */
+        height: 70px; /* Уменьшаем размер логотипа */
+        margin-right: 10px; /* Уменьшаем отступ справа от логотипа */
+    }
+}
+
+/* Медиа-запрос для экранов меньше 768px (мобильные устройства) */
+@media (max-width: 768px) {
+    .header {
+        height: auto; /* Высота шапки автоматически подстраивается под содержимое */
+        flex-wrap: wrap; /* Элементы шапки переносятся на новую строку */
+        padding: 10px; /* Увеличиваем отступы для мобильных устройств */
+    }
+
+    .logo {
+        width: 50px; /* Еще больше уменьшаем размер логотипа */
+        height: 60px; /* Еще больше уменьшаем размер логотипа */
+        margin-right: 5px; /* Уменьшаем отступ справа от логотипа */
+    }
+
+    .nav-buttons {
+        gap: 10px; /* Еще больше уменьшаем отступы между кнопками */
+        margin-right: 5px; /* Уменьшаем отступ справа */
+        margin-left: 5px; /* Уменьшаем отступ слева */
+        order: 2; /* Перемещаем кнопки вниз */
+        width: 100%; /* Кнопки занимают всю ширину */
+        justify-content: center; /* Центрируем кнопки */
+    }
+
+    .nav-buttons a {
+        font-size: 16px; /* Еще больше уменьшаем размер шрифта кнопок */
+    }
+
+    .search-box {
+        order: 1; /* Перемещаем поиск вверх */
+        width: 100%; /* Поиск занимает всю ширину */
+        margin: 10px 0; /* Отступы сверху и снизу */
+        justify-content: center; /* Центрируем поиск */
+    }
+
+    .search-box input {
+        width: 80%; /* Уменьшаем ширину поля поиска */
+        font-size: 14px; /* Еще больше уменьшаем размер шрифта в поле поиска */
+    }
+}
+
+/* Стили для секции hero-section */
+.hero-section {
+    width: 1920px;
+    height: 924px;
+    margin-top: 16px; /* Отступ от header */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/hero-image.jpg'); /* Замените на путь к вашей фотографии */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Стили для контента внутри секции */
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-family: Politburo;
+    font-size: 48px;
+    font-weight: 200;
+    margin-bottom: 28px; /* Отступ над прямоугольником */
+}
+
+/* Стили для прямоугольника */
+.rectangle {
+    width: 420px;
+    height: 350px;
+    font-weight: 200;
+    border: 9px solid white;
+    border-radius: 10px;
+    margin: 0 auto; /* Центрирование прямоугольника */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    position: relative; /* Для позиционирования даты */
+}
+
+/* ... (предыдущие стили остаются без изменений до .date) ... */
+
+/* Обновленные стили для даты */
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+}
+
+.date {
+    font-family: Politburo;
+    font-size: 220px;
+    color: white;
+    text-align: center;
+    font-style: normal;
+    line-height: 0.8;
+    font-weight: 500;
+    text-shadow: 5px 5px 0px #D63030; /* Красная тень с смещением 5px по горизонтали и вертикали */
+}
+
+.month {
+    font-family: Politburo;
+    font-size: 96px;
+    color: white;
+    margin-top: 20px;
+    font-weight: 200;
+}
+
+.article-button {
+    font-family: "Play", sans-serif;
+    width: 271px;
+    height: 57px;
+    background-color: transparent;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-sizing: border-box; /* Это ключевое свойство для сохранения размеров */
+    padding: 0; /* Убедимся, что внутренние отступы не влияют на размер */
+}
+
+.article-button:hover {
+    background-color: rgba(255, 255, 255, 0.46);
+    color: white;
+    border-color: white;
+    transform: none; /* Убедимся, что нет трансформаций */
+}
+
+/* Стили для новой секции */
+.new-articles-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Отступ от предыдущей секции */
+}
+
+/* Стили для кнопки "Новые статьи" */
+.new-articles-button-container {
+    margin-bottom: 45px; /* Отступ от кнопки до фотографий */
+}
+
+.new-articles-button {
+    width: 420px;
+    height: 86px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 11px;
+    color: black;
+    font-size: 40px;
+    font-family: Politburo;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.new-articles-button:hover {
+    background-color: #D9D9D9;
+    color: rgb(0, 0, 0);
+}
+
+/* Стили для контейнера с фотографиями */
+.photos-container {
+    display: flex;
+    justify-content: center;
+    gap: 130px; /* Расстояние между фотографиями */
+}
+
+/* Стили для обертки фотографии и кнопки */
+.photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для фотографий */
+.photo {
+    width: 310px; /* Ширина боковых фотографий */
+    height: 267px;
+    border-radius: 13px;
+    object-fit: cover; /* Чтобы фотографии сохраняли пропорции */
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.photo:hover {
+    box-shadow: 5px 5px 0px rgba(214, 48, 48, 1); /* Синяя тень с прозрачностью */
+}
+
+.photo-wrapper:nth-child(2) .photo {
+    width: 420px; /* Ширина центральной фотографии */
+}
+
+/* Стили для кнопки "Читать" */
+.read-button {
+    font-family: "Play", sans-serif;
+    width: 195px;
+    height: 57px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: -20px; /* Отступ от фотографии до кнопки */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.read-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 5px 5px 0px rgba(214, 48, 48, 1); /* Синяя тень с прозрачностью */
+}
+
+/* Стили для новой секции "О проекте" */
+.about-section {
+    margin-top: 90px; /* Отступ от предыдущей секции */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для прямоугольника с надписью "О проекте" */
+.about-title-container {
+    width: 420px;
+    height: 86px;
+    border: 2px solid black;
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px; /* Отступ до серого прямоугольника */
+}
+
+.about-title {
+    font-family: Politburo;
+    font-size: 40px;
+    color: black;
+}
+
+/* Стили для серого прямоугольника с текстом */
+.about-content {
+    width: 1920px;
+    height: 230px;
+    background-color: #D9D9D9; /* Серый цвет */
+    display: flex;
+    align-items: center;
+}
+
+.about-text {
+    margin-left: 308px; /* Отступ слева */
+    margin-top: 32px; /* Отступ сверху */
+    display: flex;
+    align-items: center;
+}
+
+.red-text {
+    font-family: Politburo;
+    font-size: 40px;
+    color: #D63030; /* Красный цвет */
+    margin-right: 22px; /* Отступ до текста справа */
+    margin-top: -120px;
+}
+
+/* Контейнер для текста с фиксированной шириной и высотой */
+.description-container {
+    width: 808px; /* Ширина колонки */
+    height: 140px; /* Высота колонки */
+    display: flex;
+    align-items: center;
+}
+
+.description-text {
+    font-family: "Play", sans-serif;
+    font-size: 24px;
+    color: black;
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Стили для подвала */
+.footer {
+    margin-top: 39px; /* Отступ от предыдущей секции */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Красный прямоугольник */
+.red-rectangle {
+    width: 474px;
+    height: 124px;
+    background-color: #D63030; /* Красный цвет */
+    display: flex;
+    align-items: center;
+    padding-left: 20px; /* Отступ слева для картинки */
+    position: relative;
+    z-index: 2; /* Увеличиваем z-index, чтобы красный прямоугольник был поверх черного */
+}
+
+/* Иконка в красном прямоугольнике */
+.footer-icon {
+    width: 110px;
+    height: 110px;
+    margin-right: 25px; /* Отступ справа от картинки */
+}
+
+/* Белая вертикальная линия */
+.white-line {
+    width: 4px;
+    height: 93px;
+    background-color: white;
+    margin-right: 29px; /* Отступ справа от линии */
+}
+
+/* Надпись "ИСТОРИЯ РЯДОМ" */
+.footer-title {
+    font-family: Politburo;
+    font-size: 48px;
+    color: white;
+    line-height: 1.2; /* Межстрочный интервал */
+    text-align: left;
+    width: 213px;
+    height: 92px;
+    margin-top: -10px;
+}
+
+/* Черный прямоугольник */
+.black-rectangle {
+    width: 1920px;
+    height: 356px;
+    background-color: black;
+    margin-top: -58px; /* Отступ от красного прямоугольника */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1; /* Уменьшаем z-index, чтобы черный прямоугольник был под красным */
+}
+
+/* Кнопка "Обратная связь" */
+.feedback-button {
+    width: 237px;
+    height: 49px;
+    background-color: #1A1A1A;
+    border: none;
+    border-radius: 6px;
+    font-family: "Play", sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 50px; /* Отступ от верхнего края черного прямоугольника */
+    transition: background-color 0.3s;
+}
+
+.feedback-button:hover {
+    background-color: #000000;
+}
+
+/* Обновленные стили для социальных ссылок */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 211px;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+}
+
+/* Общий стиль для элементов соцсетей */
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Расположение VK */
+.social-item:nth-child(1) {
+    margin-right: 211px; /* Отступ от центра */
+}
+
+/* Расположение Telegram (по центру) */
+.social-item:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Расположение Youtube */
+.social-item:nth-child(3) {
+    margin-left: 211px; /* Отступ от центра */
+}
+
+/* Надписи социальных сетей */
+.social-text {
+    font-family: "Play", sans-serif;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+    display: block; /* Убедимся, что текст отображается */
+}
+
+/* Обновленные стили для кнопок соцсетей с анимацией */
+.social-button {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.social-icon {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+/* Анимация смены иконки при наведении */
+.social-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Для VK */
+.social-item:nth-child(1) .social-button::after {
+    background-image: url('images/vk-icon-hover.png');
+}
+
+/* Для Telegram */
+.social-item:nth-child(2) .social-button::after {
+    background-image: url('images/telegram-icon-hover.png');
+}
+
+/* Для Youtube */
+.social-item:nth-child(3) .social-button::after {
+    background-image: url('images/youtube-icon-hover.png');
+}
+
+.social-button:hover .social-icon {
+    opacity: 0;
+}
+
+.social-button:hover::after {
+    opacity: 1;
+}
+
+
+/* Стили для серой полосы с заголовком */
+.archive-header {
+    width: 1920px;
+    height: 70px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Добавленный отступ */
+}
+
+.archive-title {
+    font-family: Politburo;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+}
+
+@media (max-width: 1300px) {
+    .archive-header {
+        width: 100%;
+    }
+    
+    .archive-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-title {
+        font-size: 28px;
+    }
+}
+
+.photos-block {
+    margin-top: 73px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Обновленные стили для кнопок с фотографиями */
+.photo-btn {
+    position: relative;
+    width: 310px;
+    height: 273px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 20px;
+    transition: box-shadow 0.3s ease; /* Добавляем плавный переход для тени */
+}
+
+
+.photo-btn:hover {
+    box-shadow: 5px 5px 0px #D63030; /* Красная тень при наведении */
+}
+
+
+.photo-btn:hover {
+    animation: shadow-drop 0.3s ease forwards; /* Применяем анимацию при наведении */
+}
+
+.photo-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Стили для подписи фото */
+.photo-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #000;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: "Play", sans-serif;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    width: 80%;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+
+/* Обновленные стили для блока новых фото */
+.new-photos-section {
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.new-photos-title {
+    width: 420px;
+    height: 86px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Politburo;
+    font-size: 40px;
+    font-weight: normal;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.new-photos-title:hover {
+    background-color: #D9D9D9;
+    color: rgb(0, 0, 0);
+}
+
+.new-photos-grid {
+    margin-top: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+   
+}
+
+.photos-row {
+    display: flex;
+    justify-content: center;
+    gap: 120px; /* Сохраняем большой отступ между фото */
+}
+
+.bottom-row {
+    margin-top: 70px; /* Отступ между верхней и нижней парой фото */
+}
+
+.new-photo-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s;
+    border-radius: 10px;
+    display: block; /* Важно! */
+    
+
+}
+
+.new-photo-btn:hover {
+    box-shadow: 5px 5px 0px rgba(214, 48, 48, 1);
+}
+
+.new-photo {
+    width: 530px;
+    height: 416px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Сохраняем отступы для мобильных устройств */
+@media (max-width: 1300px) {
+    .photos-row {
+        gap: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photos-row {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .bottom-row {
+        margin-top: 40px;
+    }
+    
+    .new-photo {
+        width: 100%;
+        height: auto;
+        max-width: 530px;
+    }
+}
+
+/* Стили для страницы Хронологии */
+.timeline-photos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background: white;
+     overflow-x: auto;
+}
+
+.timeline-row {
+    display: flex;
+    justify-content: center;
+    width: 1371.4px; /* 137.14px * 10 фото */
+    margin: 0 auto;
+}
+
+.timeline-photo {
+    width: 137.14px;
+    height: 252px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 1300px) {
+    .timeline-row {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .timeline-photo {
+        width: 20%; /* 5 фото в ряд */
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-photo {
+        width: 33.33%; /* 3 фото в ряд */
+    }
+}
+
+/* Стиль для активной ссылки в навигации */
+.nav-buttons a.active {
+    color: #D63030;
+}
+
+/* Стили для новых фото в хронологии */
+.new-photo-btn {
+    position: relative;
+    border-radius: 8px; /* Скругление углов */
+    overflow: visible; /* Обрезаем содержимое по границам */
+}
+
+.new-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Стили для подписей к фото */
+.photo-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 181px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.6); /* Белый с прозрачностью 60% */
+    border: 1px solid #000;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-caption-text {
+    font-family: 'Play', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000;
+}
+
+/* Стили для прямоугольников с годами на фотографиях хронологии */
+.year-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 137px;
+    height: 70px;
+    background-color: rgba(217, 217, 217, 0.68); /* #D9D9D9 с 68% прозрачности */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.year-text {
+    font-family: 'Play', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.timeline-photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.archive-header {
+    background-color: #f5f5f5;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.archive-title {
+      font-family: Politburo;
+    font-size: 40px;
+    font-weight: normal;
+    color: #000;
+}
+
+.timeline-photo-container:hover .timeline-photo {
+    opacity: 0.52;
+}
+
+
+.timeline-photo-container:hover .year-text {
+    color: #D63030;
+    text-shadow: none;
+}
+
+
+.photo-caption:hover {
+    background: rgba(255, 255, 255, 0.85); /* Полностью непрозрачный белый */
+}
+
+/* Стили для страницы "О фотографии" */
+.photo-details-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 85px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.photo-details-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.photo-main {
+    width: 750px;
+    height: 535px;
+    flex-shrink: 0;
+}
+
+.photo-large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+.photo-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 535px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.photo-title {
+    font-family: 'Play', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    text-align: left;
+}
+
+.photo-author {
+    font-family: 'Play', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    text-align: left;
+    padding-bottom: 3px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1300px) {
+    .photo-details-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .photo-main {
+        width: 100%;
+        height: auto;
+        max-height: 535px;
+    }
+    
+    .photo-info {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photo-details-container {
+        margin-top: 40px;
+    }
+    
+    .photo-title {
+        font-size: 24px;
+    }
+    
+    .photo-author {
+        font-size: 18px;
+    }
+}
+
+.new-photos-title {
+    width: 420px;
+    height: 86px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 11px;
+    color: black;
+    font-size: 40px;
+    font-family: Politburo;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Стили для кнопки возврата */
+.back-button {
+    position: absolute;
+    left: calc((100% - 1300px) / 2 + 20px); /* Выравниваем по левому краю основного контента */
+    width: 97px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.back-button:hover {
+    opacity: 0.6;
+}
+
+.back-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.archive-header {
+    position: relative; /* Для позиционирования кнопки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Адаптивные стили для кнопки */
+@media (max-width: 1300px) {
+    .back-button {
+        left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        left: 10px;
+        width: 50px;
+        height: 15px;
+    }
+}
+
+#map {
+    width: 1250px;
+    height: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Обновлённые стили для галереи */
+#photo-info-container {
+    display: none;
+    width: 1210px;
+    height: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gallery-slide {
+    display: none;
+    animation: fade 0.5s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-grow: 1;
+}
+
+.gallery-slide.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Изменено с space-between на flex-start */
+    gap: 20px; /* Добавлен отступ между фото и заголовком */
+}
+
+.gallery-photo-container {
+    position: relative;
+    width: 530px;
+    height: 415px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-grow: 1; Убрано, чтобы не растягивалось */
+}
+
+
+.gallery-photo {
+    width: 530px;
+    height: 415px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 35%; /* Поднимаем стрелки выше */
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.nav-arrow {
+    background: rgba(255,255,255,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.nav-arrow.prev {
+    margin-left: 240px;
+}
+
+.nav-arrow.next {
+    margin-right: 240px;
+}
+
+.nav-arrow:hover {
+    background: rgba(214, 48, 48, 0.8);
+    color: white;
+}
+
+.photo-info {
+    width: 100%;
+    margin-top: -30; /* Убрано отрицательное значение */
+    text-align: center;
+    max-height: 120px;
+    overflow: auto;
+    padding: 0 20px; /* Добавлены отступы по бокам */
+}
+
+.photo-title {
+    color: #D63030;
+    font-size: 24px;
+    margin-bottom: 5px; /* Уменьшенный отступ */
+    text-align: center;
+}
+
+.photo-description {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 530px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.photo-counter {
+    margin-top: 5px; /* Уменьшенный отступ */
+    color: #777;
+    text-align: center;
+}
+
+@keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+/* Адаптивные стили */
+@media (max-width: 850px) {
+    #photo-info-container {
+        width: 95%;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .gallery-photo-container {
+        width: 100%;
+        height: auto;
+    }
+    
+    .gallery-photo {
+        width: 100%;
+        height: auto;
+        max-width: 530px;
+        max-height: 415px;
+    }
+    
+    .nav-arrow.prev {
+        margin-left: -15px;
+    }
+    
+    .nav-arrow.next {
+        margin-right: -15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .photo-title {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+    
+    .photo-description {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+}
